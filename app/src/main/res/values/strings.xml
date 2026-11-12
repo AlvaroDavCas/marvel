@@ -3,4 +3,6 @@
 
     <string name="local_source_superhero">local_source_superhero</string>
     <string name="app_cache">app_cache</string>
+    <string name="error">error404</string>
+    <string name="textError">Error</string>
 </resources>

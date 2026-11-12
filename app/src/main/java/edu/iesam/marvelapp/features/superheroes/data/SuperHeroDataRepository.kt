@@ -14,4 +14,6 @@ class SuperHeroDataRepository(private val xmlLocalDataSource: SuperHeroXmlLocalD
     override fun getAll(): List<SuperHero> {
         return xmlLocalDataSource.findAll()
     }
+
+
 }
