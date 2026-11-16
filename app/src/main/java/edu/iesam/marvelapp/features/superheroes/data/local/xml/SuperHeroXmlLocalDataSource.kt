@@ -42,7 +42,7 @@ class SuperHeroXmlLocalDataSource(
             val jsonList: String? = sharedPref.getString(keySuperHero, null)
 
             jsonList?.let {
-                serialization.fromJson(it)
+                return serialization.fromJson(it)
             }
         }
         return emptyList()
@@ -73,11 +73,16 @@ class SuperHeroXmlLocalDataSource(
 
     }
 
+    fun update(superHero: SuperHero) {
+        //superHeroes contiene todos los superheroes Exceptoel que quiero modificar.
+        val superHeros = findAll().filterNot { it.id == superHero.id }.toMutableList()
+        superHeros.add(superHero)
+        save(superHeros)
+    }
+
     companion object {
         private val keySuperHero: String = "superhero"
         private val ttl: Long = 5 * 60 * 1000
 
     }
-
-
 }
